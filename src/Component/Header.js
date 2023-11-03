@@ -15,9 +15,9 @@ return ()=>{
   },[searchQuery]);
 
   const getSearchSuggestion =async()=>{
+    console.log("API CALL"+searchQuery);
 const data = await fetch(YouTube_Search_Api+searchQuery);
 const json= await data.json;
-console.log(json);
   }
   const dispatch = useDispatch();
 
@@ -42,6 +42,7 @@ console.log(json);
         </a>
       </div>
       <div className="col-span-10 py-1 my-1 mt-1">
+        <div>
         <input
           className="w-1/2 border border-gray-400 p-2 rounded-l-full"
           type="text"
@@ -51,6 +52,18 @@ console.log(json);
         <button className="border border-gray-400 py-2 px-5 bg-gray-100 rounded-r-full">
           🔎
         </button>
+      </div>
+      <div className="fixed bg-white py-2 px-5 w-[28rem] shadow-lg rounded-lg border boreder-gray-100">
+        <ul>
+          <li className="py-2 shadow-sm hover:bg-gray-100">🔎 Iphone</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+        </ul>
+      </div>
       </div>
       <div className="col-span-1">
         <img
