@@ -5,6 +5,7 @@ import { YouTube_Search_Api } from "../utils/constants";
 
 const Header = () => {
   const [searchQuery,setSearchQuery] = useState("");
+  const [suggestion, setSuggestion] = useState([]);
 
   useEffect(()=>{
 const timer = setTimeout(()=>getSearchSuggestion(),200);
@@ -17,7 +18,8 @@ return ()=>{
   const getSearchSuggestion =async()=>{
     console.log("API CALL"+searchQuery);
 const data = await fetch(YouTube_Search_Api+searchQuery);
-const json= await data.json;
+const json= await data.json();
+setSuggestion(json[1]);
   }
   const dispatch = useDispatch();
 
@@ -55,13 +57,10 @@ const json= await data.json;
       </div>
       <div className="fixed bg-white py-2 px-5 w-[28rem] shadow-lg rounded-lg border boreder-gray-100">
         <ul>
-          <li className="py-2 shadow-sm hover:bg-gray-100">🔎 Iphone</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
-          <li className="py-2 shadow-sm">🔎 Iphone Pro</li>
+          
+          {suggestion.map((s)=>(
+            <li className="py-2 shadow-sm hover:bg-gray-100">🔎 {s}</li>
+          ))}
         </ul>
       </div>
       </div>
