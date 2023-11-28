@@ -7,7 +7,7 @@ const VideoCard = ({ info }) => {
       <div className="flex-1">
         <div className="font-bold py-2">{info.snippet.title}</div>
         <div>{info.snippet.channelTitle}</div>
-        <div>{info.statistics.viewCount} Views</div>
+        <div>{info.statistics.viewCount}Views</div>
       </div>
     </div>
   );
